@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perfect Numbers!</title>
+        <script>
+            function findPerfects(x) {
+                var numberCount = []
+                var amount = 0
+
+                for(var i=1; i<(x/2)+1; i++) {
+                    var progress = x/i
+                    if(Number.isInteger(progress)){
+                        numberCount.push(i)
+                    }
+                }
+
+                for(var j=0; j<numberCount.length; j++) {
+                    amount += numberCount[j]
+                }
+                
+                if(amount == x){
+                    document.getElementById("result").innerHTML = x + " is a perfect number!" 
+                } else {
+                    document.getElementById("result").innerHTML = x + " isn't a perfect number."
+                }
+            }
+        </script>
+        <style>
+            body {
+                background-color: orange;
+                font-size: 20pt
+            }
+
+            h1 {
+                color: cyan
+            }
+
+            p {
+                color: blue
+            }
+
+            .buttons {
+                color: green
+            }
+
+            input[type="button"] {
+                transition: 1s;
+                background-color: orange;
+                color: blueviolet;
+                font-size: 20pt;
+            }
+
+            input[type="button"]:hover {
+                transition: 1s;
+                background-color: blueviolet;
+                color: orange;
+                font-size: 27.5pt
+            }
+
+            input[type="number"] {
+                color: crimson;
+                background-color: gold
+            }
+
+            .result {
+                color: red
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is a program that calculates perfect numbers</h1>
+        <p>A perfect number is a number in which all it's factors add up to the number itself.<br/>
+        For example, the factors for the number 6 are 1, 2 and 3. 1 + 2 + 3 = 6, so 6 would be perfect.<br/>
+        You can use this site to quickly find out if a number if perfect or not.<br/>
+        Type in any number into the text box. Click the button to find out whether it's perfect or not.</p>
+        <p>Type in here: <input type="number" id="textBox"/></p>            
+        <p><input type="button" onclick="findPerfects(document.getElementById('textBox').value)" value="Click here to see result"/><br/>
+        <div id="result" class="result"></div></p>
+        <p><a href="primeNumbers.html">Click here to calculate for prime numbers!</a></p>
+    </body>
+</html>
